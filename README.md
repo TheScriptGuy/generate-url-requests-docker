@@ -72,5 +72,5 @@ Take note the `$IMAGE_TAG` that's defined above.
 
 
 ```bash
-docker run --rm $IMAGE_TAG
+docker run --rm <image-name>
 ```
