@@ -60,7 +60,6 @@ Upon successful execution, the Docker image will be built with the specified con
 - Ensure the `certs` directory exists and contains the necessary `*.crt` files.
 - Make sure the Dockerfile exists in the directory where you are running the `build-image.sh` script.
 
-Embrace the power of Docker and happy coding! :tada:
 
 ## Warnings :warning:
 - Make sure that you are using some security device to filter traffic.
