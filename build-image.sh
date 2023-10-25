@@ -35,7 +35,7 @@ if [ ! -d "certs" ]; then
 fi
 
 # Check if there are any *.crt files in the 'certs' directory
-CERT_FILES=$(find certs -type f -name "*.crt" -name "*.pem" | wc -l)
+CERT_FILES=$(find certs -type f \( -name "*.crt" -o -name "*.pem" \) | wc -l)
 if [ "$CERT_FILES" -eq 0 ]; then
     echo "Error: No *.crt or *.pem files found in the certs directory."
     exit 1
