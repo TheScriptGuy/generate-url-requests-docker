@@ -28,17 +28,14 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Set work directory
 WORKDIR /app
 
-RUN git clone https://github.com/TheScriptGuy/generate-url-requests /app
-
-
 # Copy the certificates required for TLS decryption to a temporary directory
 COPY certs/ /tmp/certs/
 
 # Append the custom certificates to the certifi cacert.pem
-RUN cat /tmp/certs/* >> $(python3 -c "import certifi; print(certifi.where())")
+RUN cp /tmp/certs/* /usr/local/share/ca-certificates && update-ca-certificates && cat /tmp/certs/* >> $(python3 -c "import certifi; print(certifi.where())") && rm -rf /tmp/certs
 
-# Remove the temporary directory as it is no longer needed
-RUN rm -r /tmp/certs/
+# Clone the Github Repository
+RUN git clone https://github.com/TheScriptGuy/generate-url-requests /app
 
 # Command to run the script
 # You can override these values at runtime using the docker run command with the -e option
