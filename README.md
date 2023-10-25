@@ -57,7 +57,7 @@ Upon successful execution, the Docker image will be built with the specified con
 
 ## Troubleshooting :warning:
 
-- Ensure the `certs` directory exists and contains the necessary `*.crt` files.
+- Ensure the `certs` directory exists and contains the necessary `*.crt` or `*.pem` files.
 - Make sure the Dockerfile exists in the directory where you are running the `build-image.sh` script.
 
 
