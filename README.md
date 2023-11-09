@@ -32,8 +32,8 @@ The Dockerfile comes with several pre-configured settings that you can modify ac
 
 ### Environment Variables :gear:
 
-- **`$NUM_CONNECTIONS`**: Set the number of connections. Default is `10000`.
-- **`$NUM_WORKERS`**: Set the number of workers. Default is `100`.
+- **`$NUM_CONNECTIONS`**: Set the number of connections. Default is `100`.
+- **`$NUM_WORKERS`**: Set the number of workers. Default is `3`.
 
 To override these values at runtime, use the Docker run command with the `-e` option.
 
@@ -41,6 +41,16 @@ Example:
 
 ```bash
 docker run -e NUM_CONNECTIONS=5000 -e NUM_WORKERS=50 <image-name>
+```
+
+## Allow insecure connections
+To allow insecure connections to be established, add the --insecure command to the Dockerfile CMD line
+```
+CMD ["sh", "-c", "python3 generate-requests.py $NUM_CONNECTIONS $NUM_WORKERS"]
+```
+becomes
+```
+CMD ["sh", "-c", "python3 generate-requests.py $NUM_CONNECTIONS $NUM_WORKERS --insecure"]
 ```
 
 ## Image Build Execution :rocket:
@@ -73,3 +83,4 @@ Take note the `$IMAGE_TAG` that's defined above.
 ```bash
 docker run --rm <image-name>
 ```
+
