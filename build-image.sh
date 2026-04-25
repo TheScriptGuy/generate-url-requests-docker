@@ -5,14 +5,14 @@
 # Description:        This script is designed to build a Docker image with
 #                     specified configurations and error-handling mechanisms.
 # Author:             TheScriptGuy (https://github.com/TheScriptGuy)
-# Date last modified: 2023-10-25
-# Version:            1.1
+# Date last modified: 2026-04-25
+# Version:            1.3
 # ----------------------------------------
 
 # Variables
 REPOSITORY=""
 IMAGE_TAG_NAME="generate-url-requests"
-IMAGE_TAG_VERSION="1.0"
+IMAGE_TAG_VERSION="1.4"
 
 # -----------------
 # DO NOT EDIT BELOW

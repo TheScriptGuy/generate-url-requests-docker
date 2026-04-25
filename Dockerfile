@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 
 # Set Environment variables for python script.
 ENV NUM_CONNECTIONS=10000
-ENV NUM_WORKERS=100
+ENV NUM_WORKERS=4
 
 # Install Python3 and pip
 # Also install other dependencies such as gcc and musl-dev to ensure certain Python packages like 'requests' can be installed
@@ -39,4 +39,4 @@ RUN git clone https://github.com/TheScriptGuy/generate-url-requests /app
 
 # Command to run the script
 # You can override these values at runtime using the docker run command with the -e option
-CMD ["sh", "-c", "python3 generate-requests.py $NUM_CONNECTIONS $NUM_WORKERS"]
+CMD ["sh", "-c", "python3 generate-requests.py --random-delay 8 $NUM_CONNECTIONS $NUM_WORKERS"]
